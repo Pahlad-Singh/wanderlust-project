@@ -1,0 +1,110 @@
+<% layout("./layouts/boilerplate") -%>
+<div class="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1">
+  <div class="formNew">
+    <br /><br />
+    <h3>Create New Listing</h3>
+    <form
+      method="POST"
+      action="/"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="listing[title]"
+          placeholder="Enter title"
+          required
+        />
+        <div class="valid-feedback">Title Looks Good!</div>
+        <div class="invalid-feedback">
+          Title is require ! Please enter valid title
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Image upload</label>
+        <input
+          type="file"
+          class="form-control"
+          name="listing[image]"
+          required
+        />
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label><br />
+          <input
+            type="text"
+            class="form-control"
+            name="listing[price]"
+            placeholder="Enter price"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid price</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label><br />
+          <input
+            type="text"
+            class="form-control"
+            name="listing[country]"
+            placeholder="Enter country"
+            required
+          />
+          <div class="invalid-feedback">Please Choose country</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="categories" class="form-label">Categories</label><br />
+          <select
+            name="listing[categories]"
+            id="categories"
+            class="form-control"
+          >
+            <% for(category of categories) {%>
+            <option><%= category %></option>
+            <% } %>
+          </select>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="location" class="form-label">Location</label><br />
+          <input
+            type="text"
+            class="form-control"
+            name="listing[location]"
+            placeholder="Enter location"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid location</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label><br />
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          id="description"
+          cols="50"
+          rows="10"
+          placeholder="type your description"
+          required
+        ></textarea>
+        <div class="invalid-feedback">
+          Please enter sort description min-100 char!
+        </div>
+      </div>
+      <button class="btn btn-dark add-btn">Submit</button>
+      <br /><br />
+    </form>
+  </div>
+</div>
