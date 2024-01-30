@@ -61,31 +61,16 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="mb-3 col-md-4">
-          <label for="categories" class="form-label">Categories</label><br />
-          <select
-            name="listing[categories]"
-            id="categories"
-            class="form-control"
-          >
-            <% for(category of categories) {%>
-            <option><%= category %></option>
-            <% } %>
-          </select>
-        </div>
-
-        <div class="mb-3 col-md-8">
-          <label for="location" class="form-label">Location</label><br />
-          <input
-            type="text"
-            class="form-control"
-            name="listing[location]"
-            placeholder="Enter location"
-            required
-          />
-          <div class="invalid-feedback">Please enter valid location</div>
-        </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label><br />
+        <input
+          type="text"
+          class="form-control"
+          name="listing[location]"
+          placeholder="Enter location"
+          required
+        />
+        <div class="invalid-feedback">Please enter valid location</div>
       </div>
 
       <div class="mb-3">
