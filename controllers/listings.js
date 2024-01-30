@@ -10,18 +10,7 @@ module.exports.Index = async (req, res, next) => {
 };
 
 module.exports.renderNewForm = async (req, res) => {
-  let categories = [
-    "Trending",
-    "Rooms",
-    "Iconic Cities",
-    "Mountains",
-    "Castles",
-    "Amazing Pools",
-    "Camping",
-    "Farms",
-    "Arctic",
-  ];
-  res.render("listings/new.ejs", {categories});
+  res.render("listings/new.ejs");
 };
 
 module.exports.createNewForm = async (req, res, next) => {
@@ -59,22 +48,11 @@ module.exports.showListing = async (req, res) => {
 };
 
 module.exports.renderEditListing = async (req, res) => {
-  let categories = [
-    "Trending",
-    "Rooms",
-    "Iconic Cities",
-    "Mountains",
-    "Castles",
-    "Amazing Pools",
-    "Camping",
-    "Farms",
-    "Arctic",
-  ];
   let { id } = req.params;
   let listing = await Listing.findById(id);
   let originalImageUrl = listing.image.url;
   originalImageUrl.replace("/upload", "/upload/w_250");
-  res.render("listings/edit.ejs", { listing, originalImageUrl, categories });
+  res.render("listings/edit.ejs", { listing, originalImageUrl });
 };
 
 module.exports.updateListing = async (req, res) => {
